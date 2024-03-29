@@ -1,0 +1,74 @@
+!
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rock paper scissor</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        let userhand = prompt("Enter  Rock Paper and Scissor?");
+
+        let count = 1;
+        let aihand = ["ROCK", "PAPER", "SCISSOR"]
+        let ai = aihand[Math.floor(Math.random() * aihand.length)];
+        let ui = userhand.toUpperCase();
+        console.log(ai, ui);
+
+
+        if (ui == "ROCK") {
+            if (ai == ui) {
+                console.log("Draw R");
+            }
+            else if (ai == "PAPER") {
+                console.log("ui lose");
+            }
+            else if (ai == "SCISSOR") {
+                console.log("ui win");
+            }
+        }
+
+        else if (ui == "PAPER") {
+            if (ai == "ROCK") {
+                console.log("ui wins");
+            }
+            else if (ai == ui) {
+                console.log("Draw");
+            }
+            else if (ai == "SCISSOR") {
+                console.log("ai win");
+            }
+        }
+        
+        else if (ui == "SCISSOR") {
+            if (ai == ui) {
+                console.log("draw");
+            }
+            else if (ai == "PAPER") {
+                console.log("ui wins");
+            }
+            else if (ai == "ROCK") {
+                console.log("ai wins");
+            }
+        }
+        else {
+
+            console.log("Error");
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
