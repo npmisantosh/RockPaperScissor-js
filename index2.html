@@ -10,7 +10,6 @@
     <script>
       let userCount,
         aiCount = 0;
-
       let i = 1;
       while (i < 6) {
         let userhand = prompt("Enter  Rock Paper and Scissor?").toUpperCase();
@@ -20,7 +19,7 @@
           userhand == "SCISSOR"
         ) {
           let aihand = ["ROCK", "PAPER", "SCISSOR"];
-          let ai = aihand[2];
+          let ai = aihand[Math.floor(Math.random() * aihand.length)];
           console.log(userhand, ai);
           if (userhand == ai) {
             console.log("Round ", i, " draw");
