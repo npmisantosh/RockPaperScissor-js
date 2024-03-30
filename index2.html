@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let userCount,
+        aiCount = 0;
+
+      let i = 1;
+      while (i < 6) {
+        let userhand = prompt("Enter  Rock Paper and Scissor?").toUpperCase();
+        if (
+          userhand == "ROCK" ||
+          userhand == "PAPER" ||
+          userhand == "SCISSOR"
+        ) {
+          let aihand = ["ROCK", "PAPER", "SCISSOR"];
+          let ai = aihand[2];
+          console.log(userhand, ai);
+          if (userhand == ai) {
+            console.log("Round ", i, " draw");
+          } else if (
+            (userhand == "ROCK" && ai == "SCISSOR") ||
+            (userhand == "PAPER" && ai == "ROCK") ||
+            (userhand == "SCISSOR" && ai == "PAPER")
+          ) {
+            console.log("Round ", i, " USER wins");
+            userCount++;
+          } else {
+            console.log("Round ", i, "AI wins");
+            aiCount++;
+          }
+          i++;
+        } else {
+          console.log("Invalid input please enter ROCK/PAPER/SCISSOR!!");
+        }
+      }
+      console.log("USER WINS: ", userCount, " AI WINS: ", aiCount);
+      if (userCount > aiCount) {
+        console.log("Best of five user wins");
+      } else if (userCount < aiCount) {
+        console.log("Best of five AI wins");
+      } else {
+        console.log("Best of five DRAW");
+      }
+    </script>
+  </body>
+</html>
