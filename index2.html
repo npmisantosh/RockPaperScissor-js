@@ -19,7 +19,7 @@
           userhand == "SCISSOR"
         ) {
           let aihand = ["ROCK", "PAPER", "SCISSOR"];
-          let ai = aihand[2];
+          let ai = aihand[Math.floor(Math.random() * aihand.length)];
           console.log(userhand, ai);
           if (userhand == ai) {
             console.log("Round ", i, " draw");
