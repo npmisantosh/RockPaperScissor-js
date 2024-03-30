@@ -8,15 +8,13 @@
 
   <body>
     <script>
-      let userCount,
+      let userCount = 0,
         aiCount = 0;
       let i = 1;
       while (i < 6) {
         let userhand = prompt("Enter  Rock Paper and Scissor?").toUpperCase();
         if (
-          userhand == "ROCK" ||
-          userhand == "PAPER" ||
-          userhand == "SCISSOR"
+          userhand == "ROCK" || "PAPER" || "SCISSOR"
         ) {
           let aihand = ["ROCK", "PAPER", "SCISSOR"];
           let ai = aihand[Math.floor(Math.random() * aihand.length)];

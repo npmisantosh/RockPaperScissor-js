@@ -1,61 +1,68 @@
-!
 <!DOCTYPE html>
 
 <html>
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Rock paper scissor</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
 </head>
 
 <body>
+ 
     <script>
-        let userhand = prompt("Enter  Rock Paper and Scissor?");
 
-        let count = 1;
-        let aihand = ["ROCK", "PAPER", "SCISSOR"]
-        let ai = aihand[Math.floor(Math.random() * aihand.length)];
-        let ui = userhand.toUpperCase();
-        console.log(ai, ui);
+console.log("start")
+
+let playerInput = prompt("Choose Rock paper or scissor");
+playerSelection = playerInput.toUpperCase();
+console.log(playerInput, playerSelection)
+computerSelection = ["ROCK","PAPER", "SCISSOR"]
+
+function getComputerChoice(computerSelection){
+    cs =  computerSelection[(Math.floor(Math.random() * computerSelection.length))];
+    console.log("inside getco", computerSelection)
+    return "ROCK"
+
+}
+
+function playRound(playerSelection, computerSelection) {
 
 
-        if (ui == "ROCK") {
-            if (ai == ui) {
+    console.log(playerSelection,computerSelection )
+
+    if (playerSelection == "ROCK") {
+            if (computerSelection == playerSelection) {
                 console.log("Draw R");
             }
-            else if (ai == "PAPER") {
-                console.log("ui lose");
+            else if (computerSelection == "PAPER") {
+                console.log("playerSelection lose");
             }
-            else if (ai == "SCISSOR") {
-                console.log("ui win");
+            else if (computerSelection == "SCISSOR") {
+                console.log("playerSelection win");
             }
         }
 
-        else if (ui == "PAPER") {
-            if (ai == "ROCK") {
-                console.log("ui wins");
+        else if (playerSelection == "PAPER") {
+            if (computerSelection == "ROCK") {
+                console.log("playerSelection wins");
             }
-            else if (ai == ui) {
+            else if (computerSelection == playerSelection) {
                 console.log("Draw");
             }
-            else if (ai == "SCISSOR") {
-                console.log("ai win");
+            else if (computerSelection == "SCISSOR") {
+                console.log("computerSelection win");
             }
         }
         
-        else if (ui == "SCISSOR") {
-            if (ai == ui) {
+        else if (playerSelection == "SCISSOR") {
+            if (computerSelection == playerSelection) {
                 console.log("draw");
             }
-            else if (ai == "PAPER") {
-                console.log("ui wins");
+            else if (computerSelection == "PAPER") {
+                console.log("playerSelection wins");
             }
-            else if (ai == "ROCK") {
-                console.log("ai wins");
+            else if (computerSelection == "ROCK") {
+                console.log("computerSelection wins");
             }
         }
         else {
@@ -64,10 +71,21 @@
         }
 
 
+    
+}
+
+console.log(playRound(playerSelection, getComputerChoice()));
 
 
 
+function playGame(){
 
+
+}
+
+
+
+        
     </script>
 </body>
 
