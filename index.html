@@ -1,92 +1,68 @@
 <!DOCTYPE html>
 
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Rock paper scissor</title>
-</head>
+  </head>
 
-<body>
- 
+  <body>
     <script>
+      let playerInput = "";
+      computerSelection = ["ROCK", "PAPER", "SCISSOR"];
+      let userWinCount, computerWinCount, rounds;
 
-console.log("start")
+      function getComputerChoice(computerSelection) {
+        return computerSelection[
+          Math.floor(Math.random() * computerSelection.length)
+        ];
+      }
+      function playRound(playerSelection, computerSelection) {
+        if (playerSelection == "ROCK" || "PAPER" || "SCISSOR") {
+          if (playerSelection == computerSelection) {
+            console.log("draw");
+          } else if (
+            (playerSelection == "ROCK" && computerSelection == "SCISSOR") ||
+            (playerSelection == "PAPER" && computerSelection == "ROCK") ||
+            (playerSelection == "SCISSOR" && computerSelection == "PAPER")
+          ) {
+            console.log("USER wins");
+            userWinCount++;
+          } else {
+            console.log("computerSelection wins");
+            computerWinCount++;
+          }
+          rounds++;
+        } else {
+          console.log("Invalid input please enter ROCK/PAPER/SCISSOR!!");
+        }
+      }
 
-let playerInput = prompt("Choose Rock paper or scissor");
-playerSelection = playerInput.toUpperCase();
-console.log(playerInput, playerSelection)
-computerSelection = ["ROCK","PAPER", "SCISSOR"]
+      console.log(playGame());
 
-function getComputerChoice(computerSelection){
-    cs =  computerSelection[(Math.floor(Math.random() * computerSelection.length))];
-    console.log("inside getco", computerSelection)
-    return "ROCK"
+      function playGame() {
+        for (rounds = 0; rounds < 5; +rounds + 1 - 1) {
+          playerInput = prompt("Choose Rock paper or scissor");
+          playerSelection = playerInput.toUpperCase();
 
-}
-
-function playRound(playerSelection, computerSelection) {
-
-
-    console.log(playerSelection,computerSelection )
-
-    if (playerSelection == "ROCK") {
-            if (computerSelection == playerSelection) {
-                console.log("Draw R");
-            }
-            else if (computerSelection == "PAPER") {
-                console.log("playerSelection lose");
-            }
-            else if (computerSelection == "SCISSOR") {
-                console.log("playerSelection win");
-            }
+          console.log(rounds);
+          playRound(playerSelection, getComputerChoice(computerSelection));
         }
 
-        else if (playerSelection == "PAPER") {
-            if (computerSelection == "ROCK") {
-                console.log("playerSelection wins");
-            }
-            else if (computerSelection == playerSelection) {
-                console.log("Draw");
-            }
-            else if (computerSelection == "SCISSOR") {
-                console.log("computerSelection win");
-            }
+        console.log(
+          `USER WINS: `,
+          userWinCount,
+          ` AI WINS: `,
+          computerWinCount
+        );
+        if (userWinCount > computerWinCount) {
+          console.log("Best of five user wins");
+        } else if (userWinCount < computerWinCount) {
+          console.log("Best of five AI wins");
+        } else {
+          console.log("Best of five DRAW");
         }
-        
-        else if (playerSelection == "SCISSOR") {
-            if (computerSelection == playerSelection) {
-                console.log("draw");
-            }
-            else if (computerSelection == "PAPER") {
-                console.log("playerSelection wins");
-            }
-            else if (computerSelection == "ROCK") {
-                console.log("computerSelection wins");
-            }
-        }
-        else {
-
-            console.log("Error");
-        }
-
-
-    
-}
-
-console.log(playRound(playerSelection, getComputerChoice()));
-
-
-
-function playGame(){
-
-
-}
-
-
-
-        
+      }
     </script>
-</body>
-
+  </body>
 </html>
