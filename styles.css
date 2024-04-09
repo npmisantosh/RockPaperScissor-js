@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(31, 113, 175);
+}
+.buttons{
+    background-color: rgb(19, 62, 95);
+    padding: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    font-size: 55px;
+    font-weight: bold;
+}
+button{
+    padding: 25px;
+    margin: 10px;
+    font-size: 25px;
+    font-weight: bold;
+
+}
